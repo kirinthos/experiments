@@ -21,7 +21,7 @@ countElements xs = map (head &&& length) . group . sort $ xs
 -- function and runs the tests against the function
 runTest f t = do
     putStrLn ("\ntest: " ++ (show $ fst t))
-    putStrLn ("expected answer:\t" ++ (show $ snd t))
-    putStrLn ("our answer:\t\t" ++ (show ((uncurry f) $ fst t)))
+    putStrLn ("expect:\t" ++ (show $ snd t))
+    putStrLn ("actual:\t" ++ (show ((uncurry f) $ fst t)))
 
 runTests f = map (runTest f)
