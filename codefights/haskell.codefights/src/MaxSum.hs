@@ -1,7 +1,6 @@
 module MaxSum where
 
 import JTL
-import Data.List (sort)
 
 {-
 You are given an array of integers a. A range sum query is defined by a pair of non-negative integers l and r (l <= r). The output to a range sum query on the given array a is the sum of all the elements of a that have indices from l to r, inclusive.
@@ -30,8 +29,6 @@ firstTest = testInputs !! 0
 numbers = fst firstTest
 indices = snd firstTest
 
-maximumSumRanges a q = let freqs = sort . map snd $ (countElements . expandRanges) q
-                           ns = sort a
+maximumSumRanges a q = let freqs = sortDesc . map snd $ (countElements . expandRanges) q
+                           ns = sortDesc a
                        in sum $ zipWith (*) ns freqs
-
-
